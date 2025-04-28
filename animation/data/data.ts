@@ -1,12 +1,12 @@
 export type Card = {
-        id: number;
-        name: string;
-        author: string;
-        color: string;
-        image: string;
-            bio:string;
-  };  
-  const data = [
+  id: number;
+  name: string;
+  color: string;
+  image: string;
+  bio: string;
+  age: number;
+};
+const data = [
   {
     id: 1,
     name: 'John Doe',
@@ -89,4 +89,4 @@ export type Card = {
   },
 ];
 
-  export default data;
+export default data;
