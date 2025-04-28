@@ -13,7 +13,7 @@ const data = [
     age: 25,
     bio: 'Loves traveling and photography.',
     color: '#FF7F50',
-    image: 'https://tse1.mm.bing.net/th?id=OIP.pZZ22Tnq8s5INHwvXe7NRQHaJQ&pid=Api&P=0&h=180',
+    image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cGVvcGxlfGVufDB8fDB8fHww',
   },
   {
     id: 2,
@@ -21,7 +21,7 @@ const data = [
     age: 30,
     bio: 'Software engineer and coffee enthusiast.',
     color: '#6A5ACD',
-    image: 'https://i.pinimg.com/originals/c4/ff/c0/c4ffc08d8d41bf1416a78e5ea2b734f5.jpg',
+    image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cGVvcGxlfGVufDB8fDB8fHww',
   },
   {
     id: 3,
@@ -29,7 +29,7 @@ const data = [
     age: 28,
     bio: 'Fitness coach and health blogger.',
     color: '#3CB371',
-    image: 'https://archzine.net/wp-content/uploads/2023/08/sommersprossen-aufmalen-schritt-fuer-schritt-modernes-make-up.webp',
+    image: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8cGVvcGxlfGVufDB8fDB8fHww',
   },
   {
     id: 4,
@@ -37,7 +37,7 @@ const data = [
     age: 32,
     bio: 'Graphic designer and book lover.',
     color: '#FFD700',
-    image: 'https://i.pinimg.com/originals/fb/6d/75/fb6d750745f9ba478431ba8f4d2ad8b0.jpg',
+    image: 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8cGVvcGxlfGVufDB8fDB8fHww',
   },
   {
     id: 5,
@@ -45,7 +45,7 @@ const data = [
     age: 29,
     bio: 'Musician and movie buff.',
     color: '#8A2BE2',
-    image: 'https://www.sydneylivingmuseums.com.au/sites/default/files/field/image/green-portrait.jpg',
+    image: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHBlb3BsZXxlbnwwfHwwfHx8MA%3D%3D',
   },
   {
     id: 6,
@@ -53,7 +53,7 @@ const data = [
     age: 27,
     bio: 'Photographer and traveler.',
     color: '#FF6347',
-    image: 'https://media.istockphoto.com/id/1207416253/photo/young-beautiful-woman-in-a-red-dress-standing-on-the-beach-at-sunset.jpg?s=612x612&w=0&k=20&c=9zNwABkPm_yBqg9Yo-z2ItXfeJfUms94Fe33-P0Brbw=',
+    image: 'https://images.unsplash.com/photo-1522556189639-b150ed9c4330?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mzh8fHBlb3BsZXxlbnwwfHwwfHx8MA%3D%3D',
   },
   {
     id: 7,
@@ -61,7 +61,7 @@ const data = [
     age: 24,
     bio: 'Web developer and tech enthusiast.',
     color: '#20B2AA',
-    image: 'https://i.pinimg.com/originals/d4/18/6a/d4186a3f02f984da1b46289b20ea83cc.jpg',
+    image: 'https://images.unsplash.com/photo-1488161628813-04466f872be2?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHBlb3BsZXxlbnwwfHwwfHx8MA%3D%3D',
   },
   {
     id: 8,
@@ -69,7 +69,7 @@ const data = [
     age: 31,
     bio: 'Fashion blogger and yoga lover.',
     color: '#FF1493',
-    image: 'https://media.istockphoto.com/id/1294625982/photo/portrait-of-a-young-woman-in-white-and-gray-yoga-clothing-standing-in-sunlight.jpg?s=612x612&w=0&k=20&c=khv0hHtPjaYOFeXpp4E-r2iSHmjXfy7wqX7eqXjTiFM=',
+    image: 'https://images.unsplash.com/photo-1500917293891-ef795e70e1f6?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OTF8fHBlb3BsZXxlbnwwfHwwfHx8MA%3D%3D',
   },
   {
     id: 9,
@@ -77,7 +77,7 @@ const data = [
     age: 34,
     bio: 'Entrepreneur and startup mentor.',
     color: '#DC143C',
-    image: 'https://media.istockphoto.com/id/1340340550/photo/portrait-of-young-african-american-businessman-smiling-at-camera.jpg?s=612x612&w=0&k=20&c=bV69m_Dgh52Q2L9He4b8HR2Zb5sd-L9dSx3uwxlomzw=',
+    image: 'https://images.unsplash.com/photo-1535295972055-1c762f4483e5?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjZ8fHBlb3BsZXxlbnwwfHwwfHx8MA%3D%3D',
   },
   {
     id: 10,
@@ -85,7 +85,7 @@ const data = [
     age: 29,
     bio: 'Architect and sustainability advocate.',
     color: '#ADFF2F',
-    image: 'https://media.istockphoto.com/id/1178086042/photo/young-woman-working-in-office.jpg?s=612x612&w=0&k=20&c=mxUpJuxU2OlN61Cqhr2gHgdOSzLMZoOHQU7l4ldp0es=',
+    image: 'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzB8fHBlb3BsZXxlbnwwfHwwfHx8MA%3D%3D',
   },
 ];
 

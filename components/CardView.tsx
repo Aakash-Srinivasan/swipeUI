@@ -87,7 +87,7 @@ export default memo(CardView)
 const styles = StyleSheet.create({
     card: {
         width: SCREEN_WIDTH * 0.8,
-        height: SCREEN_HEIGHT * 0.5,
+        height: SCREEN_HEIGHT * 0.7,
         backgroundColor: 'white',
         borderRadius: 15,
         position: 'absolute',
@@ -97,32 +97,35 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.25,
         elevation: 5,
         overflow: 'hidden',
+        justifyContent:'center',
+        alignItems:'center',
     },
-    cardimage: {
-        width: '100%',
-        height: '75%',
-        borderRadius: 15,
-        overflow: 'hidden',
-    },
+    
     image: {
         width: '100%',
         height: '100%',
         resizeMode: 'cover',
+        // justifyContent: 'center', // <-- add this
+        // alignItems: 'center',     // <-- add this
     },
     footer: {
-        padding: 20
+        // backgroundColor:'red',
+        padding: 20,
+        alignSelf:'center',
     },
     cardName: {
-        fontSize: 20,
-        fontWeight: 'bold',
-        color: 'black',
+        fontSize: 24,
+        fontFamily: 'font',
+        color: 'white',
     },
     cardAge: {
-        color: '#ccc',
+        fontFamily: 'font',
+        color: '#fff',
         marginBottom: 5,
     },
     cardBio: {
-        color: '#eee',
+        color: '#fff',
+        fontFamily: 'font',
         fontSize: 14,
     },
 })
