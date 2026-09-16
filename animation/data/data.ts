@@ -6,18 +6,21 @@ export type Card = {
   bio: string;
   age: number;
 };
-const data = [
+
+// Sample profile data for the swipe deck demo. Names and bios are fictional
+// placeholder content; photos are generic stock images from Unsplash.
+const data: Card[] = [
   {
     id: 1,
-    name: 'John Doe',
-    age: 25,
+    name: 'Maya Chen',
+    age: 27,
     bio: 'Loves traveling and photography.',
     color: '#FF7F50',
     image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cGVvcGxlfGVufDB8fDB8fHww',
   },
   {
     id: 2,
-    name: 'Jane Smith',
+    name: 'Priya Patel',
     age: 30,
     bio: 'Software engineer and coffee enthusiast.',
     color: '#6A5ACD',
@@ -25,7 +28,7 @@ const data = [
   },
   {
     id: 3,
-    name: 'Mike Johnson',
+    name: 'Ethan Brooks',
     age: 28,
     bio: 'Fitness coach and health blogger.',
     color: '#3CB371',
@@ -33,7 +36,7 @@ const data = [
   },
   {
     id: 4,
-    name: 'Emily White',
+    name: 'Grace Kim',
     age: 32,
     bio: 'Graphic designer and book lover.',
     color: '#FFD700',
@@ -41,7 +44,7 @@ const data = [
   },
   {
     id: 5,
-    name: 'Chris Green',
+    name: 'Diego Alvarez',
     age: 29,
     bio: 'Musician and movie buff.',
     color: '#8A2BE2',
@@ -49,7 +52,7 @@ const data = [
   },
   {
     id: 6,
-    name: 'Sarah Brown',
+    name: 'Sofia Ramirez',
     age: 27,
     bio: 'Photographer and traveler.',
     color: '#FF6347',
@@ -57,7 +60,7 @@ const data = [
   },
   {
     id: 7,
-    name: 'David Lee',
+    name: 'Noah Bennett',
     age: 24,
     bio: 'Web developer and tech enthusiast.',
     color: '#20B2AA',
@@ -65,7 +68,7 @@ const data = [
   },
   {
     id: 8,
-    name: 'Sophia Anderson',
+    name: 'Aisha Khan',
     age: 31,
     bio: 'Fashion blogger and yoga lover.',
     color: '#FF1493',
@@ -73,7 +76,7 @@ const data = [
   },
   {
     id: 9,
-    name: 'Luke Roberts',
+    name: 'Jordan Lee',
     age: 34,
     bio: 'Entrepreneur and startup mentor.',
     color: '#DC143C',
@@ -81,7 +84,7 @@ const data = [
   },
   {
     id: 10,
-    name: 'Olivia Miller',
+    name: 'Olivia Foster',
     age: 29,
     bio: 'Architect and sustainability advocate.',
     color: '#ADFF2F',

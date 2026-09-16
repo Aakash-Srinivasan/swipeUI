@@ -1,51 +1,45 @@
-# Welcome to your Expo app 👋
+# Swipe UI
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A focused, Tinder-style swipe card demo built with [Expo](https://expo.dev), [React Native Gesture Handler](https://docs.swmansion.com/react-native-gesture-handler/), and [React Native Reanimated 3](https://docs.swmansion.com/react-native-reanimated/).
 
-## Get started
+It renders a stack of profile cards that can be dragged in any direction, or swiped with the on-screen like/dislike buttons. The card interpolates rotation, opacity, and the next card's scale as it's dragged, and animates off-screen (or snaps back) on release.
 
-1. Install dependencies
+## Key implementation detail: gesture handling runs on the UI thread
+
+The drag gesture is built with Gesture Handler's `Gesture.Pan()` API (see `app/(tabs)/index.tsx`) rather than React Native's legacy `PanResponder`. This matters because:
+
+- `onUpdate` mutates Reanimated shared values (`translateX`, `translateY`, `nextCardScale`) directly inside a UI-thread worklet, so every touch-move frame is handled without crossing the JS bridge.
+- `onEnd` decides the swipe outcome (left/right/up/down or snap-back) and only hops back to the JS thread via `runOnJS` for the parts that must run there — updating React state once the card animation completes.
+- `components/CardView.tsx` wraps the top card in a `GestureDetector` and derives all of its visual transform (position, rotation, opacity, scale) from those shared values inside `useAnimatedStyle`, so the whole gesture-to-animation pipeline stays off the JS thread until a card is actually dismissed.
+
+This is the idiomatic way to combine Gesture Handler 2 with Reanimated 3, and it's what keeps the drag feeling smooth even under JS-thread load.
+
+## Project structure
+
+- `app/(tabs)/index.tsx` — the swipe screen: gesture setup, swipe/reset logic, and the like/dislike buttons.
+- `components/CardView.tsx` — a single animated card, including the gesture detector for the top card.
+- `animation/data/data.ts` — sample card data (placeholder names/bios with generic stock photos).
+
+## Getting started
+
+1. Install dependencies:
 
    ```bash
    npm install
    ```
-2.Create a .env file
-Copy the .env.example file (if available) or create a new .env file in the root directory and replace the placeholder values with your own configuration.
-3. Start the app
+
+2. Start the app:
 
    ```bash
-    npx expo start
+   npx expo start
    ```
 
-In the output, you'll find options to open the app in a
+   From the Expo CLI output you can open the app in a [development build](https://docs.expo.dev/develop/development-builds/introduction/), an Android emulator, an iOS simulator, or [Expo Go](https://expo.dev/go).
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+## Scripts
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
-```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+- `npm run start` — start the Expo dev server (dev client)
+- `npm run ios` / `npm run android` — build and run on a simulator/emulator
+- `npm run web` — run in the browser
+- `npm run lint` — run Expo's lint config
+- `npm run test` — run the Jest test suite
