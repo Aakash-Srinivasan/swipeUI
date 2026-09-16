@@ -1,20 +1,22 @@
-import { View, Text, Dimensions, StyleSheet, Image, ImageBackground } from 'react-native'
+import { View, Text, Dimensions, StyleSheet, ImageBackground } from 'react-native'
 import React, { FC, memo, useEffect } from 'react'
 import { Card } from '@/animation/data/data'
 import Animated, { Extrapolation, interpolate, SharedValue, useAnimatedStyle, useSharedValue, withTiming, Easing } from 'react-native-reanimated';
+import { GestureDetector, PanGesture } from 'react-native-gesture-handler';
 
 interface CardProps {
     card: Card;
     index: number;
     totalCards: number;
-    panHandlers: any;
+    // Only the top card is draggable; other cards render without a gesture attached.
+    panGesture?: PanGesture;
     translateX: SharedValue<number>;
     translateY: SharedValue<number>;
     nextCardScale: SharedValue<number>;
 }
 const { width: SCREEN_WIDTH, height: SCREEN_HEIGHT } = Dimensions.get('window');
 const ROTATION_RANGE = 15;
-const CardView: FC<CardProps> = ({ card, index, totalCards, panHandlers, translateX, translateY, nextCardScale }) => {
+const CardView: FC<CardProps> = ({ card, index, totalCards, panGesture, translateX, translateY, nextCardScale }) => {
     const isTopCard = index === 0;
     const isSecondCard = index === 1;
     const leftOffset = useSharedValue(0);
@@ -70,8 +72,9 @@ const CardView: FC<CardProps> = ({ card, index, totalCards, panHandlers, transla
             zIndex: totalCards - index,
         }
     })
-    return (
-        <Animated.View style={[styles.card, animationStyle]} {...panHandlers}>
+
+    const card_ = (
+        <Animated.View style={[styles.card, animationStyle]}>
             <ImageBackground source={{ uri: card.image }} style={styles.image} resizeMode="cover">
                 <View style={styles.footer}>
                     <Text style={styles.cardName}>{card.name}</Text>
@@ -81,13 +84,23 @@ const CardView: FC<CardProps> = ({ card, index, totalCards, panHandlers, transla
             </ImageBackground>
         </Animated.View>
     )
+
+    if (!panGesture) {
+        return card_;
+    }
+
+    return (
+        <GestureDetector gesture={panGesture}>
+            {card_}
+        </GestureDetector>
+    )
 }
 
 export default memo(CardView)
 const styles = StyleSheet.create({
     card: {
         width: SCREEN_WIDTH * 0.8,
-        height: SCREEN_HEIGHT * 0.7,
+        height: SCREEN_HEIGHT * 0.62,
         backgroundColor: 'white',
         borderRadius: 15,
         position: 'absolute',
@@ -97,21 +110,17 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.25,
         elevation: 5,
         overflow: 'hidden',
-        justifyContent:'center',
-        alignItems:'center',
+        justifyContent: 'center',
+        alignItems: 'center',
     },
-    
     image: {
         width: '100%',
         height: '100%',
         resizeMode: 'cover',
-        // justifyContent: 'center', // <-- add this
-        // alignItems: 'center',     // <-- add this
     },
     footer: {
-        // backgroundColor:'red',
         padding: 20,
-        alignSelf:'center',
+        alignSelf: 'center',
     },
     cardName: {
         fontSize: 24,
